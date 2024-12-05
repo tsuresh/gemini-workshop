@@ -49,14 +49,10 @@ response = model.generate_content(
 
 response.candidates[0].content
 
-print(response.candidates[0].content)
-
 params = {}
 for key, value in response.candidates[0].content.parts[0].function_call.args.items():
     params[key[9:]] = value
 params
-
-print(params)
 
 import requests
 url = f"https://api.frankfurter.app/{params['date']}"
